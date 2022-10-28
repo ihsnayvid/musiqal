@@ -18,6 +18,7 @@ def loginUser(request):
             login(request, user)
             return redirect("/")
         else:
+            messages.info(request, 'Invalid Username or Password!!')
             return render(request,'login.html')
     return render(request,'login.html')
 
@@ -30,12 +31,16 @@ def signUp(request):
         username = request.POST.get('username')
         email = request.POST.get('email')
         password = request.POST.get('password')
+        confirm_password = request.POST.get('confirm_password')
         if User.objects.filter(username=username).exists():
             messages.info(request, 'Username Taken')
             return redirect('register')
         elif User.objects.filter(email=email).exists():
             messages.info(request, 'Email Taken')
             return redirect('register')
+        elif password != confirm_password:
+            messages.info(request, 'Passwords do not match!!')
+            return redirect('register')            
         else:
             user = User.objects.create_user(username=username, email=email, password=password)
             user.save()
