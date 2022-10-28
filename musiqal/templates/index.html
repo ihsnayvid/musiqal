@@ -7,113 +7,83 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-
+{% comment %} 
     <!-- Bootstrap CSS -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
-    />
+    /> {% endcomment %}
 
     <title>Musiqal</title>
-    <style>
-      .nav-right {
-        margin-left: auto;
-      }
-    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/indexpage.css">
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">Musiqal</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <form class="form-inline my-2 my-lg-0">
-          <input
-            class="form-control mr-sm-2"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"/>
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-            Search
-          </button>
-        </form>
-
-        <a class="nav-right" href="/logout">
-          <button type="button" class="btn btn-light">Log Out</button>
-        </a>
-      </div>
-    </nav>
-    <div
-      class="d-flex flex-column vh-100 flex-shrink-0 p-3 text-white bg-dark"
-      style="width: 250px">
-      <hr />
-      <ul class="nav nav-pills flex-column mb-auto">
-        <li class="nav-item">
-          <a href="/" class="nav-link active" aria-current="page">
-            <i class="fa fa-home"></i><span class="ms-2">Home</span>
-          </a>
-        </li>
-        <li>
-          <a href="#" class="nav-link text-white">
-            <i class="fa fa-dashboard"></i><span class="ms-2">Playlists</span>
-          </a>
-        </li>
-      </ul>
-      <hr />
-      <div class="dropdown">
-        <a
-          href="#"
-          class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
-          id="dropdownUser1"
-          data-bs-toggle="dropdown"
-          aria-expanded="false">
-          <img
-            src="https://github.com/mdo.png"
-            alt=""
-            width="32"
-            height="32"
-            class="rounded-circle me-2"
-          />
-          <strong> John W </strong>
-        </a>
-        <ul
-          class="dropdown-menu dropdown-menu-dark text-small shadow"
-          aria-labelledby="dropdownUser1">
-          <li><a class="dropdown-item" href="#">New project</a></li>
-          <li><a class="dropdown-item" href="#">Settings</a></li>
-          <li><a class="dropdown-item" href="#">Profile</a></li>
-          <li><hr class="dropdown-divider" /></li>
-          <li><a class="dropdown-item" href="/logout">Sign out</a></li>
-        </ul>
-      </div>
-    </div>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
+    <div class="grid-container">
+      <div class="sidebar">
+    
+        <img class="logo"
+                src="/static/images/musiqal_logo.png"></img>
+    
+            <div class="options-section">
+                <div class="options home {% block home %}
+       active {% endblock %}">
+                    <svg viewBox="0 0 512 512" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+                        <path class='ops'
+                            d="M448 463.746h-149.333v-149.333h-85.334v149.333h-149.333v-315.428l192-111.746 192 110.984v316.19z"
+                            fill="grey"></path>
+                    </svg>
+                    <a class='label' href="/">Home</a>
+                </div>
+                <!-- brk change -->
+                <div class="options2 ">
+                    <span class='label'>Playlists</span>
+                </div>
+                <div class="options create {% block liked-song %}
+       {% endblock %}">
+                    <img height="30px" class="likedImg" src="https://www.citypng.com/public/uploads/preview/-51611915675wmb5cgaf3d.png"
+                        alt=""></img>
+                    <a href="/playlist" class='label'>Liked Songs</a>
+                </div>
+              </div>
+        </div>
+        
+        <div class="navbar">
+            <div class="nav-btn-container">
+                <form action="/search" method="get" name="search-form">
+                    <div class="searchCont">
+                <svg onClick="document.forms['search-form'].submit();" class='searchBarIcon' viewBox="0 0 512 512" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+                        <path class='ops'
+                            d="M349.714 347.937l93.714 109.969-16.254 13.969-93.969-109.969q-48.508 36.825-109.207 36.825-36.826 0-70.476-14.349t-57.905-38.603-38.603-57.905-14.349-70.476 14.349-70.476 38.603-57.905 57.905-38.603 70.476-14.349 70.476 14.349 57.905 38.603 38.603 57.905 14.349 70.476q0 37.841-14.73 71.619t-40.889 58.921zM224 377.397q43.428 0 80.254-21.461t58.286-58.286 21.461-80.254-21.461-80.254-58.286-58.285-80.254-21.46-80.254 21.46-58.285 58.285-21.46 80.254 21.46 80.254 58.285 58.286 80.254 21.461z"
+                            fill="black" fill-rule="evenodd"></path>
+                  </svg>
+                <input class="searchBar" placeholder="Search for song" type="text" name="search" id="searchBar" required>
+                </div>
+    
+                </form>
+            </div>
+            <a class="profile-container" href="/logout">
+                <button class="profile">
+                    <div class="profile-pic">
+                        <svg width="16" height="16" fill="white" viewBox="0 0 18 20" xmlns="http://www.w3.org/2000/svg"
+                            data-testid="user-icon">
+                            <path
+                                d="M15.216 13.717L12 11.869C11.823 11.768 11.772 11.607 11.757 11.521C11.742 11.435 11.737 11.267 11.869 11.111L13.18 9.57401C14.031 8.58001 14.5 7.31101 14.5 6.00001V5.50001C14.5 3.98501 13.866 2.52301 12.761 1.48601C11.64 0.435011 10.173 -0.0879888 8.636 0.0110112C5.756 0.198011 3.501 2.68401 3.501 5.67101V6.00001C3.501 7.31101 3.97 8.58001 4.82 9.57401L6.131 11.111C6.264 11.266 6.258 11.434 6.243 11.521C6.228 11.607 6.177 11.768 5.999 11.869L2.786 13.716C1.067 14.692 0 16.526 0 18.501V20H1V18.501C1 16.885 1.874 15.385 3.283 14.584L6.498 12.736C6.886 12.513 7.152 12.132 7.228 11.691C7.304 11.251 7.182 10.802 6.891 10.462L5.579 8.92501C4.883 8.11101 4.499 7.07201 4.499 6.00001V5.67101C4.499 3.21001 6.344 1.16201 8.699 1.00901C9.961 0.928011 11.159 1.35601 12.076 2.21501C12.994 3.07601 13.5 4.24301 13.5 5.50001V6.00001C13.5 7.07201 13.117 8.11101 12.42 8.92501L11.109 10.462C10.819 10.803 10.696 11.251 10.772 11.691C10.849 12.132 11.115 12.513 11.503 12.736L14.721 14.585C16.127 15.384 17.001 16.884 17.001 18.501V20H18.001V18.501C18 16.526 16.932 14.692 15.216 13.717Z">
+                            </path>
+                        </svg>
+                    </div>
+                    <span class='username hide-onhover'>{{ request.user }}</span>
+                    <span class='logout username'>Logout</span>
+                </button>
+            </a>
+        </div>
+    
   </body>
 </html>
