@@ -1,42 +1,7 @@
-.nav-right {
-    margin-left: auto;
-}
-
-.sidebar-custom {
-    top: 0;
-    margin: 0px;
-    flex-direction: column;
-}
-
-body {
-    background-color: #eee;
-}
-
-.nav-link:hover {
-    background-color: #525252 !important;
-}
-
-.nav-link .fa {
-    transition: all 1s;
-}
-
-.nav-link:hover .fa {
-    transform: rotate(360deg);
-}
-
-.flex-container {
-    display: flex;
-}
-
-.navbar-custom {
-    display: flex;
-    height: 40px;
-    padding: 0 16px;
-}
-
 html,
 body,
 .grid-container {
+    background-color: rgb(63, 35, 154);
     height: 100%;
     margin: 0;
     color: #b3b3b3;
@@ -76,7 +41,11 @@ input:invalid {
     grid-template-columns: 232px auto;
     grid-template-rows: 60px auto 90px;
     gap: 0px 0px;
-    grid-template-areas: "sidebar navbar" "sidebar main" "playbar playbar";
+    grid-template-areas: "sidebar navbar" "sidebar main" "sidebar bottom";
+}
+
+.main {
+    min-height: 72vh;
 }
 
 .label {
@@ -306,4 +275,52 @@ input:invalid {
 
 .profile:hover .logout {
     display: block;
+}
+
+.bottom {
+    /* padding-left: 70vh; */
+    /* width: 100vh; */
+    position: sticky;
+    bottom: 0;
+    height: 130px;
+    /* background-color: black; */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.icons {
+    margin-top: 14px;
+    left: 50px;
+}
+
+.icons i {
+    cursor: pointer;
+}
+
+.songInfo {
+    position: absolute;
+    left: 8vw;
+    font-family: 'Varela Round', sans-serif;
+}
+
+#myProgressBar {
+    width: 80vw;
+    cursor: pointer;
+}
+
+.icon1 {
+    cursor: pointer;
+    position: absolute;
+    left: 3vw;
+}
+
+.icon2 {
+    cursor: pointer;
+    align-items: right;
+    position: absolute;
+    right: 3vw;
+    justify-content: flex-end;
 }
