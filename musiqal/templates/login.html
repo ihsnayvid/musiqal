@@ -138,6 +138,8 @@
         </div>
     </form>
 	<div class="text-center">Don't have an account? <a href="/register">Register Here</a></div>
+	<br>
+	<div class="text-center"><a href="{% url "password_reset" %}">Forgot Password?</a></div>
 </div>
 	{% if messages %}
         {% for message in messages %}
