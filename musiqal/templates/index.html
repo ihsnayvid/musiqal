@@ -78,7 +78,9 @@
     </div>
 
     <div class="main">
-
+    {% block main %}
+     
+    {% endblock main %}
     </div>
 
     <div class="bottom">
@@ -106,23 +108,5 @@
     </div>
     <script src="https://kit.fontawesome.com/55ddcda51e.js" crossorigin="anonymous"></script>
     <script src="/static/js/index.js"></script>
-    {% comment %}
-    <script>
-      let masterPlay = document.getElementById('masterPlay');
-      masterPlay.addEventListener('click', () => {
-        if (audioElement.paused || audioElement.currentTime <= 0) {
-          audioElement.play();
-          masterPlay.classList.remove('fa-play-circle');
-          masterPlay.classList.add('fa-pause-circle');
-          gif.style.opacity = 1;
-        }
-        else {
-          audioElement.pause();
-          masterPlay.classList.remove('fa-pause-circle');
-          masterPlay.classList.add('fa-play-circle');
-          gif.style.opacity = 0;
-        }
-        )
-    </script> {% endcomment %}
-</body>
+  </body>
 </html>

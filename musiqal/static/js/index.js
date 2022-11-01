@@ -5,6 +5,7 @@ let forwardbutton = document.getElementById("next");
 let backbutton = document.getElementById("previous");
 let slider = document.getElementById("musicSlider");
 let lyrics = document.getElementById("lyrics");
+let cards = Array.from(document.getElementsByClassName("card_custom"));
 // let listbutton = document.getElementById("listbutton");
 // let songcover = document.getElementById("songcover");
 
@@ -34,7 +35,7 @@ function shuffleArr(array) {
     }
 }
 
-playbutton.addEventListener("click", () => {
+playbutton.addEventListener("click", () => {    
     if (audio.paused == true || audio.currentTime <= 0) {
         audio.play();
         play.classList.remove('fa-play-circle');
@@ -90,7 +91,31 @@ slider.addEventListener("click", () => {
     audio.currentTime = slider.value;
 })
 
+
+cards.forEach(card => {
+    card.addEventListener("click", () =>{
+        download_song(card.id);
+    })
+});
+
 function setUpdate() {
     let current = audio.currentTime;
     slider.value = current;
+}
+
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': 'fe4c8a33f4mshb03efeb944d6fb5p1954e8jsna74e41f4c88c',
+		'X-RapidAPI-Host': 'youtube-music1.p.rapidapi.com'
+	}
+};
+
+async function download_song(id){
+    url = `https://youtube-music1.p.rapidapi.com/get_download_url?id=${id}`;    
+
+    const res = await fetch(url,options);
+    const data = await res.json();
+    
+    audio.src = data.result.download_url;
 }
