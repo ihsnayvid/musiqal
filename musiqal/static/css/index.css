@@ -1,7 +1,7 @@
 html,
 body,
 .grid-container {
-    background-color: rgb(63, 35, 154);
+    background-color: rgb(30, 18, 69);
     height: 100%;
     margin: 0;
     color: #b3b3b3;
@@ -283,7 +283,7 @@ input:invalid {
     position: sticky;
     bottom: 0;
     height: 130px;
-    /* background-color: black; */
+    background-color: black;
     color: white;
     display: flex;
     justify-content: center;
@@ -306,7 +306,7 @@ input:invalid {
     font-family: 'Varela Round', sans-serif;
 }
 
-#myProgressBar {
+#musicSlider {
     width: 80vw;
     cursor: pointer;
 }

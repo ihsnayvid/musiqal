@@ -64,7 +64,7 @@ def search(request):
     }
     
     response = requests.get(url_search, headers=headers, params=querysearch)
-    song_id = json.loads(response.text)['result']['songs'][0]['id']
+    # song_id = json.loads(response.text)['result']['songs'][0]['id']
     
     # send song_id to the api call to download song
     # url_download = "https://youtube-music1.p.rapidapi.com/get_download_url"
@@ -73,7 +73,7 @@ def search(request):
     # response = requests.get(url_download, headers=headers, params=querydownload)
     # download_url = json.loads(response.text)['result']['download_url']
     # mp3 = requests.get(download_url)
-    # with open('song.mp3', 'wb') as f:
+    # with open('./static/music/song.mp3', 'wb') as f:
     #     f.write(mp3.content)
         
     return render(request, 'search.html')
