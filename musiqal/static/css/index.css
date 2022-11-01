@@ -46,6 +46,12 @@ input:invalid {
 
 .main {
     min-height: 72vh;
+    overflow-y: scroll;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-content: space-between;
+    padding: 10px 30px;
 }
 
 .label {
@@ -232,11 +238,11 @@ input:invalid {
 .profile:hover {
     background: #282828;
     cursor: pointer;
-    color: #1db954
+    color: rgb(155, 130, 238);
 }
 
 .profile:hover svg {
-    fill: #1db954;
+    fill: rgb(155, 130, 238);
     transition: 0.25s ease-in-out;
 }
 
@@ -323,4 +329,16 @@ input:invalid {
     position: absolute;
     right: 3vw;
     justify-content: flex-end;
+}
+
+.card_custom{
+    margin: 10px; 
+    padding: 20px;
+    border-radius: 15px;
+    color: white;
+    background-color: #000000;
+}
+
+.card-img-top{
+    border-radius: 10px;
 }

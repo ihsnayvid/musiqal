@@ -1,1 +1,15 @@
 {% extends 'index.html' %}
+
+{% block main %}
+  
+    {% for i in  song_list%}       
+     
+        <div class="card card_custom" id = "{{i.id}}" style="height: 20rem; width: 15rem;">
+            <img src="{{i.thumbnail}}" class="card-img-top" alt="{{i.name}}">
+            <div class="card-body">
+            <p class="card-text">{{i.name}}</p>
+            </div>
+        </div>  
+      
+    {% endfor %}
+{% endblock main %}
