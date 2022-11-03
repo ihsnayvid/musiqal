@@ -26,7 +26,7 @@
       <div class="options-section">
         <div class="options home {% block home %}
        active {% endblock %}">
-          <svg viewBox="0 0 512 512" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+          <svg viewBox="0 0 512 512" width="30" height="30" xmlns="http://www.w3.org/2000/svg">
             <path class='ops'
               d="M448 463.746h-149.333v-149.333h-85.334v149.333h-149.333v-315.428l192-111.746 192 110.984v316.19z"
               fill="grey"></path>
@@ -41,7 +41,7 @@
        {% endblock %}">
           <img height="30px" class="likedImg"
             src="https://www.citypng.com/public/uploads/preview/-51611915675wmb5cgaf3d.png" alt=""></img>
-          <a href="/playlist" class='label'>Liked Songs</a>
+          <a href="/likedsongs" class='label'>Liked Songs</a>
         </div>
       </div>
     </div>
@@ -89,7 +89,7 @@
       </audio>
       <input type="range" name="range" id="musicSlider" min="0" value="0" max="1000">
       <div class="icon1">
-        <i class="fas fa-2x fa-heart" id="like"></i>
+        <i class="far fa-2x fa-heart" id="like"></i>
         <i class="fas fa-2x fa-music"></i>
       </div>
       <div class="icons">
@@ -101,9 +101,6 @@
       <div class="icon2">
         <i class="fas fa-2x fa-shuffle" id="shuffle"></i>
         <i class="fas fa-2x fa-bookmark" id="lyrics"></i>
-      </div>
-      <div class="songInfo">
-        <span id="masterSongName">Song Name</span>
       </div>
     </div>
     <script src="https://kit.fontawesome.com/55ddcda51e.js" crossorigin="anonymous"></script>

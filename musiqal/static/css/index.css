@@ -306,12 +306,6 @@ input:invalid {
     cursor: pointer;
 }
 
-.songInfo {
-    position: absolute;
-    left: 8vw;
-    font-family: 'Varela Round', sans-serif;
-}
-
 #musicSlider {
     width: 80vw;
     cursor: pointer;
@@ -331,14 +325,31 @@ input:invalid {
     justify-content: flex-end;
 }
 
-.card_custom{
-    margin: 10px; 
+.card_custom {
+    margin: 10px;
     padding: 20px;
     border-radius: 15px;
     color: white;
     background-color: #000000;
+    cursor: pointer;
 }
 
-.card-img-top{
+.card-img-top {
     border-radius: 10px;
+}
+
+.card-text {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.l_songs {
+    margin: 30px;
+    background-color: #000;
+}
+
+.l_song-custom {
+    margin: 10px;
 }

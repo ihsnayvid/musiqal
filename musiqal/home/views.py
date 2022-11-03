@@ -1,10 +1,13 @@
+from urllib import response
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
+from .models import l_songs
 from django.contrib.auth import logout, authenticate, login
 from django.contrib import messages
 import requests
 import json
-
+from PIL import Image
 # Create your views here.
 def index(request):
     if request.user.is_anonymous:
@@ -80,4 +83,24 @@ def search(request):
         
     return render(request, 'search.html', context)
         
-    
+def likepage(request):
+    lData = l_songs.objects.all()
+    context = {
+        'lData': lData
+    }
+    return render(request,'liked.html',context)
+
+def likes(request,s_id,name):
+    if request.user.is_anonymous:
+        return redirect("/login")
+    if l_songs.objects.filter(s_id=s_id).exists():
+        l_songs.objects.filter(s_id=s_id).delete()
+    else:
+        lData = l_songs(s_id=s_id, name=name)
+        lData.save()
+    return redirect("/")
+    # if l_songs.objects.filter(s_id=lid).exists():
+    #     l_songs.objects.remove(request.user)
+    # else:
+    #     l_songs.objects.add(request.user)
+    # return HttpResponseRedirect(request.META["HTTP_REFERER"])
