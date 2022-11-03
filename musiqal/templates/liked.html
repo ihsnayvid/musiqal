@@ -1,0 +1,11 @@
+{% extends 'index.html' %}
+
+{% block main %}
+    {% for i in  lData%}
+        <div class="card card_custom lsong-custom" id = "{{i.s_id}}" style="height: 10rem; width: 15rem;">
+            <div class="card-body">
+            <p class="card-text">{{i.name}}</p>
+            </div>
+        </div>  
+    {% endfor %}
+{% endblock main %}

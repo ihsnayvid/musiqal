@@ -6,6 +6,7 @@ let backbutton = document.getElementById("previous");
 let slider = document.getElementById("musicSlider");
 let lyrics = document.getElementById("lyrics");
 let cards = Array.from(document.getElementsByClassName("card_custom"));
+let lsongs = Array.from(document.getElementsByClassName("lsong-custom"));
 // let listbutton = document.getElementById("listbutton");
 // let songcover = document.getElementById("songcover");
 
@@ -13,8 +14,7 @@ let currentsong = 0;
 let duration;
 slider.min = 0;
 slider.max = audio.duration;
-const songlist = [
-    {
+const songlist = [{
         img: './images/apocalypse.jpg',
         name: 'Apocalypse',
         music: 'music/apocalypse.mp3'
@@ -35,18 +35,17 @@ function shuffleArr(array) {
     }
 }
 
-playbutton.addEventListener("click", () => {    
+playbutton.addEventListener("click", () => {
     if (audio.paused == true || audio.currentTime <= 0) {
         audio.play();
         play.classList.remove('fa-play-circle');
         play.classList.add('fa-pause-circle');
-    }
-    else {
+    } else {
         audio.pause();
         play.classList.remove('fa-pause-circle');
         play.classList.add('fa-play-circle');
     }
-    
+
     duration = audio.duration;
     slider.max = duration;
 });
@@ -93,8 +92,14 @@ slider.addEventListener("click", () => {
 
 
 cards.forEach(card => {
-    card.addEventListener("click", () =>{
+    card.addEventListener("click", () => {
         download_song(card.id);
+    })
+});
+
+lsongs.forEach(song => {
+    song.addEventListener("click", () => {
+        download_song(song.s_id);
     })
 });
 
@@ -104,18 +109,21 @@ function setUpdate() {
 }
 
 const options = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': 'fe4c8a33f4mshb03efeb944d6fb5p1954e8jsna74e41f4c88c',
-		'X-RapidAPI-Host': 'youtube-music1.p.rapidapi.com'
-	}
+    method: 'GET',
+    headers: {
+        'X-RapidAPI-Key': 'fe4c8a33f4mshb03efeb944d6fb5p1954e8jsna74e41f4c88c',
+        'X-RapidAPI-Host': 'youtube-music1.p.rapidapi.com'
+    }
 };
 
-async function download_song(id){
-    url = `https://youtube-music1.p.rapidapi.com/get_download_url?id=${id}`;    
+async function download_song(id) {
+    url = `https://youtube-music1.p.rapidapi.com/get_download_url?id=${id}`;
 
-    const res = await fetch(url,options);
+    const res = await fetch(url, options);
     const data = await res.json();
-    
+
     audio.src = data.result.download_url;
+    audio.play();
+    play.classList.remove('fa-play-circle');
+    play.classList.add('fa-pause-circle');
 }
