@@ -10,8 +10,8 @@ class User(models.Model):
 
 class l_songs(models.Model):
     s_id = models.CharField('Title', max_length=100)
-    name=models.CharField('Name',max_length=100)
-    # thumbnail=models.ImageField(default='/static/images/musiqal_logo.png')
+    name = models.CharField('Name',max_length=100)
+    # thumbnail = models.CharField(default='/static/images/musiqal_logo.png')
     def __str__(self):
         return self.name
 

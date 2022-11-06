@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from .models import l_songs
 from django.contrib.auth import logout, authenticate, login
 from django.contrib import messages
+# from .forms import *
 import requests
 import json
 from PIL import Image
@@ -67,10 +68,14 @@ def search(request):
     }
     
     response = requests.get(url_search, headers=headers, params=querysearch)
-    song_list = json.loads(response.text)['result']['songs']
-    context = {
-        'song_list' : song_list
-    }
+    if json.loads(response.text)['result']:
+        song_list = json.loads(response.text)['result']['songs']
+        context = {
+            'song_list' : song_list
+        }
+    else:
+        print("is none")
+        return redirect("/")
     # send song_id to the api call to download song
     # url_download = "https://youtube-music1.p.rapidapi.com/get_download_url"
     # querydownload = {"id":song_id,"ext":"mp3"}
