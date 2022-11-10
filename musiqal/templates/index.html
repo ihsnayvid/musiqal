@@ -2,108 +2,111 @@
 <html lang="en">
 
 <head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<!-- Required meta tags -->
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-  <title>Musiqal</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="/static/css/index.css">
+	<title>Musiqal</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/static/css/index.css">
 </head>
 
 <body>
-  <div class="grid-container">
-    <div class="sidebar">
+	<div class="grid-container">
+		<div class="sidebar">
 
-      <img class="logo" src="/static/images/musiqal_logo.png"></img>
+			<img class="logo" src="/static/images/musiqal_logo.png"/>
 
-      <div class="options-section">
-        <div class="options home {% block home %}
-       active {% endblock %}">
-          <svg viewBox="0 0 512 512" width="30" height="30" xmlns="http://www.w3.org/2000/svg">
-            <path class='ops'
-              d="M448 463.746h-149.333v-149.333h-85.334v149.333h-149.333v-315.428l192-111.746 192 110.984v316.19z"
-              fill="grey"></path>
-          </svg>
-          <a class='label' href="/">Home</a>
-        </div>
-        <!-- brk change -->
-        <div class="options2 ">
-          <span class='label'>Playlists</span>
-        </div>
-        <div class="options create {% block liked-song %}
-       {% endblock %}">
-          <img height="30px" class="likedImg"
-            src="https://www.citypng.com/public/uploads/preview/-51611915675wmb5cgaf3d.png" alt=""></img>
-          <a href="/likedsongs" class='label'>Liked Songs</a>
-        </div>
-      </div>
-    </div>
+			<div class="options-section">
+				<div class="options home {% block home %}       active {% endblock %}">
+					<svg viewBox="0 0 512 512" width="30" height="30" xmlns="http://www.w3.org/2000/svg">
+						<path class='ops'
+							d="M448 463.746h-149.333v-149.333h-85.334v149.333h-149.333v-315.428l192-111.746 192 110.984v316.19z"
+							fill="grey"></path>
+					</svg>
+					<a class='label' href="/">Home</a>
+				</div>
+				<!-- brk change -->
+				<div class="options2 ">
+					<span class='label'>Playlists</span>
+				</div>
+				<div class="options create {% block liked-song %} {% endblock %}">
+					<i class="fas fa-heart" class="likedImg"></i>
+					<a href="/likedsongs" class='label'>Liked Songs</a>
+				</div>
+			</div>
 
-    <div class="navbar">
-      <div class="nav-btn-container">
-        <form action="/search" method="get" name="search-form">
-          <div class="searchCont">
-            <svg onClick="document.forms['search-form'].submit();" class='searchBarIcon' viewBox="0 0 512 512"
-              width="24" height="24" xmlns="http://www.w3.org/2000/svg">
-              <path class='ops'
-                d="M349.714 347.937l93.714 109.969-16.254 13.969-93.969-109.969q-48.508 36.825-109.207 36.825-36.826 0-70.476-14.349t-57.905-38.603-38.603-57.905-14.349-70.476 14.349-70.476 38.603-57.905 57.905-38.603 70.476-14.349 70.476 14.349 57.905 38.603 38.603 57.905 14.349 70.476q0 37.841-14.73 71.619t-40.889 58.921zM224 377.397q43.428 0 80.254-21.461t58.286-58.286 21.461-80.254-21.461-80.254-58.286-58.285-80.254-21.46-80.254 21.46-58.285 58.285-21.46 80.254 21.46 80.254 58.285 58.286 80.254 21.461z"
-                fill="black" fill-rule="evenodd"></path>
-            </svg>
-            <input class="searchBar" placeholder="Search for song" type="text" name="search" id="searchBar" required>
-          </div>
+			<div class="player-thumbnail">
+				<img id="thumbnail" src="/static/images/black.webp" alt="thumbnail" style = "margin-left:25%"/>
+			</div>
+		</div>
 
-        </form>
-      </div>
-      <a class="profile-container" href="/logout">
-        <button class="profile">
-          <div class="profile-pic">
-            <svg width="16" height="16" fill="white" viewBox="0 0 18 20" xmlns="http://www.w3.org/2000/svg"
-              data-testid="user-icon">
-              <path
-                d="M15.216 13.717L12 11.869C11.823 11.768 11.772 11.607 11.757 11.521C11.742 11.435 11.737 11.267 11.869 11.111L13.18 9.57401C14.031 8.58001 14.5 7.31101 14.5 6.00001V5.50001C14.5 3.98501 13.866 2.52301 12.761 1.48601C11.64 0.435011 10.173 -0.0879888 8.636 0.0110112C5.756 0.198011 3.501 2.68401 3.501 5.67101V6.00001C3.501 7.31101 3.97 8.58001 4.82 9.57401L6.131 11.111C6.264 11.266 6.258 11.434 6.243 11.521C6.228 11.607 6.177 11.768 5.999 11.869L2.786 13.716C1.067 14.692 0 16.526 0 18.501V20H1V18.501C1 16.885 1.874 15.385 3.283 14.584L6.498 12.736C6.886 12.513 7.152 12.132 7.228 11.691C7.304 11.251 7.182 10.802 6.891 10.462L5.579 8.92501C4.883 8.11101 4.499 7.07201 4.499 6.00001V5.67101C4.499 3.21001 6.344 1.16201 8.699 1.00901C9.961 0.928011 11.159 1.35601 12.076 2.21501C12.994 3.07601 13.5 4.24301 13.5 5.50001V6.00001C13.5 7.07201 13.117 8.11101 12.42 8.92501L11.109 10.462C10.819 10.803 10.696 11.251 10.772 11.691C10.849 12.132 11.115 12.513 11.503 12.736L14.721 14.585C16.127 15.384 17.001 16.884 17.001 18.501V20H18.001V18.501C18 16.526 16.932 14.692 15.216 13.717Z">
-              </path>
-            </svg>
-          </div>
-          <span class='username hide-onhover'>{{ request.user }}</span>
-          <span class='logout username'>Logout</span>
-        </button>
-      </a>
-    </div>
+		<div class="navbar">
+			<div class="nav-btn-container">
+				<form action="/search" method="get" name="search-form" id = "search-form">
+					<div class="searchCont">
+						<svg onClick="document.forms['search-form'].submit();" class='searchBarIcon'
+							viewBox="0 0 512 512" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+							<path class='ops'
+								d="M349.714 347.937l93.714 109.969-16.254 13.969-93.969-109.969q-48.508 36.825-109.207 36.825-36.826 0-70.476-14.349t-57.905-38.603-38.603-57.905-14.349-70.476 14.349-70.476 38.603-57.905 57.905-38.603 70.476-14.349 70.476 14.349 57.905 38.603 38.603 57.905 14.349 70.476q0 37.841-14.73 71.619t-40.889 58.921zM224 377.397q43.428 0 80.254-21.461t58.286-58.286 21.461-80.254-21.461-80.254-58.286-58.285-80.254-21.46-80.254 21.46-58.285 58.285-21.46 80.254 21.46 80.254 58.285 58.286 80.254 21.461z"
+								fill="black" fill-rule="evenodd"></path>
+						</svg>
+						<input class="searchBar" placeholder="Search for song" type="text" name="search" id="searchBar"
+							required>
+					</div>
 
-    <div class="main">
-    {% block main %}
-     
-    {% endblock main %}
-    </div>
+				</form>
+			</div>
+			<a class="profile-container" href="/logout">
+				<button class="profile">
+					<div class="profile-pic">
+						<svg width="16" height="16" fill="white" viewBox="0 0 18 20" xmlns="http://www.w3.org/2000/svg"
+							data-testid="user-icon">
+							<path
+								d="M15.216 13.717L12 11.869C11.823 11.768 11.772 11.607 11.757 11.521C11.742 11.435 11.737 11.267 11.869 11.111L13.18 9.57401C14.031 8.58001 14.5 7.31101 14.5 6.00001V5.50001C14.5 3.98501 13.866 2.52301 12.761 1.48601C11.64 0.435011 10.173 -0.0879888 8.636 0.0110112C5.756 0.198011 3.501 2.68401 3.501 5.67101V6.00001C3.501 7.31101 3.97 8.58001 4.82 9.57401L6.131 11.111C6.264 11.266 6.258 11.434 6.243 11.521C6.228 11.607 6.177 11.768 5.999 11.869L2.786 13.716C1.067 14.692 0 16.526 0 18.501V20H1V18.501C1 16.885 1.874 15.385 3.283 14.584L6.498 12.736C6.886 12.513 7.152 12.132 7.228 11.691C7.304 11.251 7.182 10.802 6.891 10.462L5.579 8.92501C4.883 8.11101 4.499 7.07201 4.499 6.00001V5.67101C4.499 3.21001 6.344 1.16201 8.699 1.00901C9.961 0.928011 11.159 1.35601 12.076 2.21501C12.994 3.07601 13.5 4.24301 13.5 5.50001V6.00001C13.5 7.07201 13.117 8.11101 12.42 8.92501L11.109 10.462C10.819 10.803 10.696 11.251 10.772 11.691C10.849 12.132 11.115 12.513 11.503 12.736L14.721 14.585C16.127 15.384 17.001 16.884 17.001 18.501V20H18.001V18.501C18 16.526 16.932 14.692 15.216 13.717Z">
+							</path>
+						</svg>
+					</div>
+					<span class='username hide-onhover'>{{ request.user }}</span>
+					<span class='logout username'>Logout</span>
+				</button>
+			</a>
+		</div>
 
-    <div class="bottom">
-      <audio id="song">
-        <source src="/static/music/song.mp3" type="audio/mpeg">
-      </audio>
-      <input type="range" name="range" id="musicSlider" min="0" value="0" max="1000">
-      <div class="icon1">
-        <i class="far fa-2x fa-heart" id="like"></i>
-        <i class="fas fa-2x fa-music"></i>
-      </div>
-      <div class="icons">
-        <!-- fontawesome icons -->
-        <i class="fas fa-3x fa-step-backward" id="previous"></i>
-        <i class="far fa-3x fa-play-circle" id="play"></i>
-        <i class="fas fa-3x fa-step-forward" id="next"></i>
-      </div>
-      <div class="icon2">
-        <i class="fas fa-2x fa-shuffle" id="shuffle"></i>
-        <i class="fas fa-2x fa-bookmark" id="lyrics"></i>
-      </div>
-    </div>
-    <script src="https://kit.fontawesome.com/55ddcda51e.js" crossorigin="anonymous"></script>
-    <script src="/static/js/index.js"></script>
-  </body>
+		<div class="main">
+			{% block main %}
+
+			{% endblock main %}
+		</div>
+
+		<div class="bottom">
+			<audio id="song">
+				<source src="/static/music/song.mp3" type="audio/mpeg">
+			</audio>
+			<input type="range" name="range" id="musicSlider" min="0" value="0" max="1000">
+			<div class="icon1">
+				<i class="far fa-2x fa-heart" id="like"></i>
+				<i class="fas fa-2x fa-music"></i>
+			</div>
+			<div class="icons">
+				<!-- fontawesome icons -->
+				<i class="fas fa-3x fa-step-backward" id="previous"></i>
+				<i class="far fa-3x fa-play-circle" id="play"></i>
+				<i class="fas fa-3x fa-step-forward" id="next"></i>
+			</div>
+			<div class="icon2">
+				<i class="fas fa-2x fa-shuffle" id="shuffle"></i>
+				<i class="fas fa-2x fa-bookmark" id="lyrics"></i>
+			</div>
+		</div>
+		<script src="https://kit.fontawesome.com/55ddcda51e.js" crossorigin="anonymous"></script>
+		<script src="/static/js/index.js"></script>
+</body>
+
 </html>
