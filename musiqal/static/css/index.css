@@ -353,3 +353,16 @@ input:invalid {
 .l_song-custom {
     margin: 10px;
 }
+
+.player-thumbnail {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 130px;   
+}
+
+#thumbnail {
+    max-width:100%;
+    max-height:100%;
+    margin-left: 25%;
+}

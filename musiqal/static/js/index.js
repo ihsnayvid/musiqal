@@ -3,8 +3,11 @@ let playbutton = document.getElementById("play");
 let shufflebutton = document.getElementById("shuffle");
 let forwardbutton = document.getElementById("next");
 let backbutton = document.getElementById("previous");
+let thumbnail = document.getElementById("thumbnail");
 let slider = document.getElementById("musicSlider");
 let lyrics = document.getElementById("lyrics");
+let form = document.getElementById("search-form");
+let cardthumbnail = Array.from(document.getElementsByClassName("card-thumbnail"));
 let cards = Array.from(document.getElementsByClassName("card_custom"));
 let lsongs = Array.from(document.getElementsByClassName("lsong-custom"));
 // let listbutton = document.getElementById("listbutton");
@@ -46,6 +49,7 @@ playbutton.addEventListener("click", () => {
         play.classList.add('fa-play-circle');
     }
 
+    // thumbnail.src = cardthumbnail.src
     duration = audio.duration;
     slider.max = duration;
 });
@@ -93,7 +97,8 @@ slider.addEventListener("click", () => {
 
 cards.forEach(card => {
     card.addEventListener("click", () => {
-        download_song(card.id);
+        download_song(card.id, card.children[0].id);
+        // thumbnail.src = cardthumbnail.src; //TODO:: fix update thumbnail
     })
 });
 
@@ -116,7 +121,7 @@ const options = {
     }
 };
 
-async function download_song(id) {
+async function download_song(id, thumbnail_id) {
     url = `https://youtube-music1.p.rapidapi.com/get_download_url?id=${id}`;
 
     const res = await fetch(url, options);
@@ -126,4 +131,5 @@ async function download_song(id) {
     audio.play();
     play.classList.remove('fa-play-circle');
     play.classList.add('fa-pause-circle');
+    thumbnail.src = thumbnail_id;
 }

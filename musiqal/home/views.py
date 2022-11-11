@@ -103,7 +103,7 @@ def likes(request,s_id,name):
     else:
         lData = l_songs(s_id=s_id, name=name)
         lData.save()
-    return redirect("/")
+    return HttpResponseRedirect(f"/search?search={name}")
     # if l_songs.objects.filter(s_id=lid).exists():
     #     l_songs.objects.remove(request.user)
     # else:

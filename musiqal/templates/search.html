@@ -5,7 +5,7 @@
     {% for i in  song_list%}       
      
         <div class="card card_custom" id = "{{i.id}}" style="height: 22rem; width: 15rem;">
-            <img src="{{i.thumbnail}}" class="card-img-top" alt="{{i.name}}">
+            <img src="{{i.thumbnail}}" class = "card-thumbnail card-img-top" id = "{{i.thumbnail}}" alt="{{i.name}}">
             <a href="/lisongs/{{i.id}}/{{i.name}}" class="likebtn">
             <i class="far fa-1x fa-heart"></i>
             </a>
